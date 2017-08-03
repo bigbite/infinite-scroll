@@ -64,7 +64,7 @@ proto.loadNextPage = function() {
     this.onPageError( error, path );
   }.bind( this );
 
-  this.request( path, this.options.responseType, onLoad, onError );
+  this.request( path, this.options.responseType, onLoad, onError, this.pageIndex );
   this.dispatchEvent( 'request', null, [ path ] );
 };
 
