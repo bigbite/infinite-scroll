@@ -64,7 +64,7 @@ proto.loadNextPage = function() {
     this.onPageError( error, path );
   }.bind( this );
 
-  request( path, this.options.responseType, onLoad, onError );
+  this.request( path, this.options.responseType, onLoad, onError );
   this.dispatchEvent( 'request', null, [ path ] );
 };
 
@@ -254,7 +254,7 @@ proto.getPrefillDistance = function() {
 
 // -------------------------- request -------------------------- //
 
-function request( url, responseType, onLoad, onError ) {
+proto.request = function( url, responseType, onLoad, onError ) {
   var req = new XMLHttpRequest();
   req.open( 'GET', url );
   // set responseType document to return DOM
